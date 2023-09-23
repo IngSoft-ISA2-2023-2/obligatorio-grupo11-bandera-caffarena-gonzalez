@@ -33,6 +33,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Codigo/Backend/PharmaGo.sln
     - name: Build
-      run: dotnet build Codigo/Backend/PharmaGo.sln --no-restore
+      run: dotnet build Codigo/Backend/PharmaGo.sln --no-restore --property WarningLevel=0
     - name: Test
       run: dotnet test Codigo/Backend/PharmaGo.sln --no-build --verbosity normal

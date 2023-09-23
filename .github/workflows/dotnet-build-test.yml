@@ -31,8 +31,8 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Restore dependencies
-      run: dotnet restore Codigo/Backend/PharmaGo
+      run: dotnet restore Codigo/Backend/PharmaGo.sln
     - name: Build
-      run: dotnet build Codigo/Backend/PharmaGo --no-restore
+      run: dotnet build Codigo/Backend/PharmaGo.sln --no-restore
     - name: Test
-      run: dotnet test Codigo/Backend/PharmaGo --no-build --verbosity normal
+      run: dotnet test Codigo/Backend/PharmaGo.sln --no-build --verbosity normal

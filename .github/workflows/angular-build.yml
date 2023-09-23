@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-    - 'Codigo\Frontend\*'
+    - 'Codigo/Frontend/*'
   pull_request:
     branches: [ "main" ]
     paths:
-    - 'Codigo\Frontend\*'
+    - 'Codigo/Frontend/*'
 
 jobs:
   ci:

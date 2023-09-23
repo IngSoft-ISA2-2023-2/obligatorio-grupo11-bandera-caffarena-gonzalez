@@ -1,0 +1,38 @@
+name: .NET Build Test
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+    - '**.cs'
+    - '**.csproj'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+    - '**.cs'
+    - '**.csproj'
+    
+env:
+  DOTNET_VERSION: '6.0.x'
+  
+jobs:
+  build:
+
+    name: build-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: Restore dependencies
+      run: dotnet restore Codigo/Backend/PharmaGo
+    - name: Build
+      run: dotnet build Codigo/Backend/PharmaGo --no-restore
+    - name: Test
+      run: dotnet test Codigo/Backend/PharmaGo --no-build --verbosity normal

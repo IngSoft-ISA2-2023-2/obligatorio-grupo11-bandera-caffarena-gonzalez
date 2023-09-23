@@ -87,6 +87,7 @@ namespace PharmaGo.Test.DataAccess.Test
 
                 //Act
                 var p_ = _purchasesDetailRepository.GetOneByExpression(p => p.Id == 1);
+                //var p_ = _purchasesDetailRepository.GetAllByExpression(p => true).ElementAtOrDefault(0);
 
                 // Assert
                 Assert.IsNotNull(p_);

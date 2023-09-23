@@ -85,6 +85,7 @@ namespace PharmaGo.Test.DataAccess.Test
                     _purchasesDetailRepository.Save();
                 }
 
+
                 //Act
                 var p_ = _purchasesDetailRepository.GetAllByExpression(p => true).ElementAtOrDefault(0);
 

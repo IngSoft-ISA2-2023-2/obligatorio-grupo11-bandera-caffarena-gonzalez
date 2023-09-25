@@ -484,6 +484,19 @@ namespace PharmaGo.Test.BusinessLogic.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidResourceException))]
+        public void Get_Purchase_By_TrackingCodeInvalid_Fail()
+        {
+            //Arrange
+            Purchase? nullPurchase = null;
+            string trackingCode = "CODETHATDOSENTEXIST";
+            _purchaseRespository
+                .Setup(y => y.GetOneDetailByExpression(p => p.TrackingCode == trackingCode)).Returns(nullPurchase);
+            //Act
+            var response = _purchasesManager.GetPurchaseByTrackingCode(trackingCode);
+        }
+
+        [TestMethod]
         public void Get_Purchase_By_TrackingCode_Ok()
         {
             //Arrange

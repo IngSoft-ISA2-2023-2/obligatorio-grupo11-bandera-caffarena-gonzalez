@@ -377,6 +377,13 @@ namespace PharmaGo.Test.WebApi.Test
             Assert.AreEqual(200, statusCode);
         }
 
+        [TestMethod]
+        public void Invitation_Get_By_Id_Role_Admin()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
 

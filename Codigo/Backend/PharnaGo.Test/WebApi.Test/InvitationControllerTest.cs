@@ -380,7 +380,26 @@ namespace PharmaGo.Test.WebApi.Test
         [TestMethod]
         public void Invitation_Get_By_Id_Role_Admin()
         {
-            throw new NotImplementedException();
+            _invitationManagerMock.Setup(i =>
+            i.GetById(It.IsAny<int>())).Returns(_invitation);
+
+            var request = new Mock<HttpRequest>();
+            request.Setup(x => x.Scheme).Returns("http");
+            request.Setup(x => x.Host).Returns(HostString.FromUriComponent("http://localhost:8080"));
+            request.Setup(x => x.PathBase).Returns(PathString.FromUriComponent("/api/Invitations"));
+
+            var httpContext = Mock.Of<HttpContext>(_ =>
+                _.Request == request.Object
+            );
+
+            var controllerContext = new ControllerContext()
+            {
+                HttpContext = httpContext,
+            };
+
+            var controller = new InvitationsController(_invitationManagerMock.Object);
+
+            controller.GetById(1);
         }
 
 

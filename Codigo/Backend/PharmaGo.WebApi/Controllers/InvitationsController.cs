@@ -43,6 +43,7 @@ namespace PharmaGo.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [AuthorizationFilter(new string[] { nameof(RoleType.Administrator) })]
         public IActionResult GetById([FromRoute] int id)
         {
             Invitation invitation = _invitationManager.GetById(id);

@@ -14,6 +14,11 @@ namespace PharmaGo.WebApi.Filters
             _roles = roles;
         }
 
+        public string[] GetRoles()
+        {
+            return _roles;
+        }
+
         public void OnActionExecuted(ActionExecutedContext context)
         {
         }

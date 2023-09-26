@@ -7,6 +7,7 @@ using PharmaGo.Domain.SearchCriterias;
 using PharmaGo.Exceptions;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.WebApi.Controllers;
+using PharmaGo.WebApi.Filters;
 using PharmaGo.WebApi.Models.In;
 using PharmaGo.WebApi.Models.Out;
 
@@ -400,6 +401,21 @@ namespace PharmaGo.Test.WebApi.Test
             var controller = new InvitationsController(_invitationManagerMock.Object);
 
             controller.GetById(1);
+
+            var method = controller.GetType().GetMethod("GetById");
+
+            Assert.IsNotNull(method);
+
+            var filter = method.GetCustomAttributes(typeof(AuthorizationFilter), false);
+
+            Assert.IsNotNull(filter);
+            Assert.AreEqual(filter.Length, 1);
+
+            AuthorizationFilter authFilter = (AuthorizationFilter)filter.ElementAt(0);
+
+            var rol = authFilter.GetRoles()[0];
+
+            Assert.AreEqual(rol, "Administrator");
         }
 
 

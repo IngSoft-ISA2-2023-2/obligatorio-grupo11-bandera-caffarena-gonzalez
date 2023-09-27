@@ -82,10 +82,7 @@ namespace PharmaGo.BusinessLogic
 
             foreach (StockRequestDetail item in stockRequest.Details)
             {
-                if (item.Quantity <= 0)
-                {
-                    throw new InvalidResourceException("Invalid stock details.");
-                }
+                if (item.Quantity <= 0) throw new InvalidResourceException("Invalid stock details.");
                 var drug = _drugRepository.GetOneByExpression(d => d.Code == item.Drug.Code && d.Pharmacy.Id == existEmployee.Pharmacy.Id);
                 if (drug == null) throw new InvalidResourceException("Stock request has invalid drug.");
 

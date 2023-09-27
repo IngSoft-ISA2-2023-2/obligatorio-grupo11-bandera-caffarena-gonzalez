@@ -141,6 +141,32 @@ namespace PharmaGo.Test.BusinessLogic.Test
 
         [TestMethod]
         [ExpectedException(typeof(InvalidResourceException))]
+        public void CreateStockRequest_WithNegativeQuantity_ShouldReturnException()
+        {
+            //Arrange
+            User user = new User() { Id = 1, UserName = "jcastro" };
+            var drug = new Drug() { Id = 1, Code = "XF324" };
+            var stockRequest = new StockRequest()
+            {
+                Id = 1,
+                Status = Domain.Enums.StockRequestStatus.Pending,
+                Employee = user,
+                Details = new List<StockRequestDetail>()
+                {
+                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = -50 }
+                },
+                RequestDate = DateTime.Now
+            };
+
+            //Act
+            _employeeMock.Setup(u => u.GetOneDetailByExpression(It.IsAny<Expression<Func<User, bool>>>())).Returns(user);
+            _drugMock.Setup(d => d.GetOneByExpression(It.IsAny<Expression<Func<Drug, bool>>>())).Returns(drug);
+            _sessionMock.Setup(d => d.GetOneByExpression(It.IsAny<Expression<Func<Session, bool>>>())).Returns(session);
+            _stockRequestManager.CreateStockRequest(stockRequest, token);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidResourceException))]
         public void RejectStockRequest_WithInvalidStockRequest_ShouldReturnException()
         {
             //Arrange

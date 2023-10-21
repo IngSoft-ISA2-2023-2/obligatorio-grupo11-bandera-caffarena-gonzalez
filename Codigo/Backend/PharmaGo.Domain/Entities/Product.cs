@@ -9,8 +9,6 @@ namespace PharmaGo.Domain.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public UnitMeasure UnitMeasure { get; set; }
-        public Presentation Presentation { get; set; }
         public bool Deleted { get; set; }
         public Pharmacy? Pharmacy { get; set; }
 

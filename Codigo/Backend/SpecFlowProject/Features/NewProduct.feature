@@ -34,8 +34,7 @@ Scenario: Incorrecta creación de un nuevo producto por codigo corto
 
 @mytag
 Scenario: Incorrecta creación de un nuevo producto por codigo repetido
-	Given quen en el escenario_IV se ingreso un objeto de codigo numerico 12345
-	And que en el escenario_IV se ingresa un código numérico de 12345
+	Given que en el escenario_IV se ingresa un código numérico de 12345
 	And en el escenario_IV ingresa un nombre de producto "Shampoo"
 	And en el escenario_IV ingresa una descripción "Dale vida a tu pelo!"
 	And en el escenario_IV coloca un precio de 100

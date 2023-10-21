@@ -8,6 +8,7 @@ namespace PharmaGo.DataAccess
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Drug> Drugs { get; set; }
+        public DbSet<Product> Pruducts { get; set; }
         public DbSet<Invitation> Invitations { get; set; }
         public DbSet<Pharmacy> Pharmacys { get; set; }
         public DbSet<Purchase> Purchases { get; set; }

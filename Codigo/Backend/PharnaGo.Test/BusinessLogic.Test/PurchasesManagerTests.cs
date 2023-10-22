@@ -14,6 +14,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
         private Mock<IRepository<Purchase>> _purchaseRespository;
         private Mock<IRepository<Pharmacy>> _pharmacyRespository;
         private Mock<IRepository<Drug>> _drugsRespository;
+        private Mock<IRepository<Product>> _productRespository;
         private Mock<IRepository<User>> _userRespository;
         private Mock<IRepository<Session>> _sessionRespository;
         private Mock<IRepository<PurchaseDetail>> _purchaseDetailRespository;
@@ -39,10 +40,11 @@ namespace PharmaGo.Test.BusinessLogic.Test
             _purchaseRespository = new Mock<IRepository<Purchase>>(MockBehavior.Strict);
             _pharmacyRespository = new Mock<IRepository<Pharmacy>>(MockBehavior.Strict);
             _drugsRespository = new Mock<IRepository<Drug>>(MockBehavior.Strict);
+            _productRespository = new Mock<IRepository<Product>>(MockBehavior.Strict);
             _userRespository = new Mock<IRepository<User>>(MockBehavior.Strict);
             _sessionRespository = new Mock<IRepository<Session>>(MockBehavior.Strict);
             _purchaseDetailRespository = new Mock<IRepository<PurchaseDetail>>(MockBehavior.Strict);
-            _purchasesManager = new PurchasesManager(_purchaseRespository.Object, _pharmacyRespository.Object, _drugsRespository.Object,
+            _purchasesManager = new PurchasesManager(_purchaseRespository.Object, _pharmacyRespository.Object, _drugsRespository.Object, _productRespository.Object,
             _purchaseDetailRespository.Object, _sessionRespository.Object, _userRespository.Object);
 
             unitMeasure1 = new UnitMeasure { Id = 1, Deleted = false, Name = "ml" };

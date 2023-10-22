@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmaGo.DataAccess;
 
@@ -11,9 +12,10 @@ using PharmaGo.DataAccess;
 namespace PharmaGo.DataAccess.Migrations
 {
     [DbContext(typeof(PharmacyGoDbContext))]
-    partial class PharmacyGoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231021232538_ProductInPurchaseDetail")]
+    partial class ProductInPurchaseDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,7 +74,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("UnitMeasureId");
 
-                    b.ToTable("Drugs", (string)null);
+                    b.ToTable("Drugs");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Invitation", b =>
@@ -107,7 +109,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Invitations", (string)null);
+                    b.ToTable("Invitations");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Pharmacy", b =>
@@ -126,7 +128,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pharmacys", (string)null);
+                    b.ToTable("Pharmacys");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Presentation", b =>
@@ -145,7 +147,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Presentations", (string)null);
+                    b.ToTable("Presentations");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Product", b =>
@@ -179,7 +181,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("PharmacyId");
 
-                    b.ToTable("Pruducts", (string)null);
+                    b.ToTable("Pruducts");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Purchase", b =>
@@ -205,7 +207,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Purchases", (string)null);
+                    b.ToTable("Purchases");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.PurchaseDetail", b =>
@@ -248,7 +250,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("PurchaseId");
 
-                    b.ToTable("PurchaseDetails", (string)null);
+                    b.ToTable("PurchaseDetails");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Role", b =>
@@ -264,7 +266,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Session", b =>
@@ -283,7 +285,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sessions", (string)null);
+                    b.ToTable("Sessions");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.StockRequest", b =>
@@ -307,7 +309,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("StockRequests", (string)null);
+                    b.ToTable("StockRequests");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.StockRequestDetail", b =>
@@ -333,7 +335,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("StockRequestId");
 
-                    b.ToTable("StockRequestDetails", (string)null);
+                    b.ToTable("StockRequestDetails");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.UnitMeasure", b =>
@@ -352,7 +354,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UnitMeasures", (string)null);
+                    b.ToTable("UnitMeasures");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.User", b =>
@@ -390,7 +392,7 @@ namespace PharmaGo.DataAccess.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PharmaGo.Domain.Entities.Drug", b =>

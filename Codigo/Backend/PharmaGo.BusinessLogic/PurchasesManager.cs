@@ -14,6 +14,7 @@ namespace PharmaGo.BusinessLogic
         private readonly IRepository<Purchase> _purchasesRepository;
         private readonly IRepository<Pharmacy> _pharmacysRepository;
         private readonly IRepository<Drug> _drugsRepository;
+        private readonly IRepository<Product> _productRepository;
         private readonly IRepository<PurchaseDetail> _purchaseDetailRepository;
         private readonly IRepository<Session> _sessionRepository;
         private readonly IRepository<User> _userRepository;
@@ -25,14 +26,17 @@ namespace PharmaGo.BusinessLogic
         public PurchasesManager(IRepository<Purchase> purchasesRepository,
                                 IRepository<Pharmacy> pharmacysRepository,
                                 IRepository<Drug> drugsRepository,
+                                IRepository<Product> productRepository,
                                 IRepository<PurchaseDetail> purchaseDetailRepository,
                                 IRepository<Session> sessionRespository,
                                 IRepository<User> userRespository)
         {
+            _purchaseDetailRepository = purchaseDetailRepository;
             _purchasesRepository = purchasesRepository;
             _pharmacysRepository = pharmacysRepository;
             _drugsRepository = drugsRepository;
-            _purchaseDetailRepository = purchaseDetailRepository;
+            _productRepository = productRepository;
+            _drugsRepository = drugsRepository;
             _sessionRepository = sessionRespository;
             _userRepository = userRespository;
         }
@@ -64,15 +68,29 @@ namespace PharmaGo.BusinessLogic
                 if (detail.Quantity <= 0)
                     throw new InvalidResourceException("The Quantity is a mandatory field");
 
-                string drugCode = detail.Drug.Code;
-                var drug = pharmacy.Drugs.FirstOrDefault(x => x.Code == drugCode && x.Deleted == false);
-                if (drug is null)
-                    throw new ResourceNotFoundException($"Drug {drugCode} not found in Pharmacy {pharmacy.Name}");
+                if(detail.IsDrug())
+                {
+                    string drugCode = detail.Drug.Code;
+                    var drug = pharmacy.Drugs.FirstOrDefault(x => x.Code == drugCode && x.Deleted == false);
+                    if (drug is null)
+                        throw new ResourceNotFoundException($"Drug {drugCode} not found in Pharmacy {pharmacy.Name}");
+
+                    detail.Price = drug.Price;
+                    detail.Drug = drug;
+                } else
+                {
+                    int prodCode = detail.Product.Code;
+                    var prod = pharmacy.Products.FirstOrDefault(x => x.Code == prodCode && x.Deleted == false);
+                    if (prod is null)
+                        throw new ResourceNotFoundException($"Prod {prod} not found in Pharmacy {pharmacy.Name}");
+
+                    detail.Price = prod.Price;
+                    detail.Product = prod;
+                }
+               
 
                 detail.Pharmacy = pharmacy;
-                total = total + (drug.Price * detail.Quantity);
-                detail.Price = drug.Price;
-                detail.Drug = drug;
+                total = total + (detail.Price * detail.Quantity);
                 detail.Status = PENDING;
             }
             purchase.TotalAmount = total;

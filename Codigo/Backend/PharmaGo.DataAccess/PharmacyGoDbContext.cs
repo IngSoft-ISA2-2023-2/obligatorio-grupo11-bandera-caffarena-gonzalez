@@ -31,6 +31,8 @@ namespace PharmaGo.DataAccess
             modelBuilder.Entity<UnitMeasure>().Property(u => u.Name).HasConversion<string>();
             modelBuilder.Entity<Presentation>().Property(u => u.Name).HasConversion<string>();
 
+            modelBuilder.Entity<Product>().Property(property => property.Price).HasPrecision(14, 2);
+
             base.OnModelCreating(modelBuilder);
 
         }

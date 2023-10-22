@@ -38,7 +38,9 @@ namespace SpecFlowProject.StepDefinitions
             Deleted = false,
         };
 
-        IEnumerable<Product> productList1;
+        IEnumerable<Product> productList1 = new List<Product>();
+        IEnumerable<Product> productList2 = new List<Product>();
+
 
         private Exception? err;
 
@@ -57,10 +59,10 @@ namespace SpecFlowProject.StepDefinitions
         [When(@"cargo la lista de productos")]
         public void WhenCargoLaListaDeProductos()
         {
-            List<Product> productList = new List<Product>();
-            productList.Add(product);
+            List<Product> returnProductList = new List<Product>();
+            returnProductList.Add(product);
             _pharmacyRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Pharmacy, bool>>>())).Returns(pharmacy);
-            _productRepository.Setup(r => r.GetAllByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productList);
+            _productRepository.Setup(r => r.GetAllByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(returnProductList);
 
             productList1 = _productManager.GetAll(new ProductSearchCriteria() { PharmacyId = pharmacy.Id });
         }
@@ -84,7 +86,7 @@ namespace SpecFlowProject.StepDefinitions
             _pharmacyRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Pharmacy, bool>>>())).Returns(nullPharmacy);
             try
             {
-                productList1 = _productManager.GetAll(new ProductSearchCriteria());
+                productList2 = _productManager.GetAll(new ProductSearchCriteria() { PharmacyId = pharmacy.Id });
             }
             catch (Exception e)
             {
@@ -95,7 +97,7 @@ namespace SpecFlowProject.StepDefinitions
         [Then(@"no se cargan los productos y salta un error")]
         public void ThenNoSeCarganLosProductosYSaltaUnError()
         {
-            productList1.Should().HaveCount(0);
+            productList2.Should().HaveCount(0);
             err.Should().NotBeNull();
             Assert.IsType<ResourceNotFoundException>(err);
         }

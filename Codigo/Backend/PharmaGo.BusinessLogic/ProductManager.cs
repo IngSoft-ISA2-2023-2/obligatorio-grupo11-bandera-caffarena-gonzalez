@@ -75,7 +75,25 @@ namespace PharmaGo.BusinessLogic
 
         public IEnumerable<Product> GetAll(ProductSearchCriteria productSearchCriteria)
         {
-            throw new NotImplementedException();
+            Product productToSearch = new Product();
+            if (productSearchCriteria.PharmacyId == null)
+            {
+                productToSearch.Name = productSearchCriteria.Name;
+            }
+            else
+            {
+                Pharmacy pharmacySaved = _pharmacyRepository.GetOneByExpression(p => p.Id == productSearchCriteria.PharmacyId);
+                if (pharmacySaved != null)
+                {
+                    productToSearch.Name = productSearchCriteria.Name;
+                    productToSearch.Pharmacy = pharmacySaved;
+                }
+                else
+                {
+                    throw new ResourceNotFoundException("The pharmacy to get products of does not exist.");
+                }
+            }
+            return _productRepository.GetAllByExpression(productSearchCriteria.Criteria(productToSearch));
         }
 
         public Product GetById(int id)

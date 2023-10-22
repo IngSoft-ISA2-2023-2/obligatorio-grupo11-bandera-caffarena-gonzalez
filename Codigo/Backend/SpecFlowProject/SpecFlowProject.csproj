@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\GetAllProducts - Copia.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\NewProduct - Copia.feature.cs" />
   </ItemGroup>
 
@@ -42,6 +43,9 @@
     <Compile Update="Features\DeleteProduct.feature.cs">
       <DependentUpon>DeleteProduct.feature</DependentUpon>
     </Compile>
+    <Compile Update="Features\GetProductsByid.feature.cs">
+      <DependentUpon>GetProductsById.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\GetAllProducts.feature.cs">
       <DependentUpon>GetAllProducts.feature</DependentUpon>
     </Compile>
@@ -49,6 +53,10 @@
 
   <ItemGroup>
     <SpecFlowFeatureFiles Update="Features\DeleteProduct.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\GetProductsById.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

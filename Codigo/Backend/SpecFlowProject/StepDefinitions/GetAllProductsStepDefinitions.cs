@@ -41,7 +41,6 @@ namespace SpecFlowProject.StepDefinitions
         IEnumerable<Product> productList1 = new List<Product>();
         IEnumerable<Product> productList2 = new List<Product>();
 
-
         private Exception? err;
 
         [Given(@"Una famacia de id (.*)")]

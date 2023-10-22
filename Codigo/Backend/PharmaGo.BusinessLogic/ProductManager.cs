@@ -63,47 +63,17 @@ namespace PharmaGo.BusinessLogic
 
         public void Delete(int id)
         {
-            var productSaved = _productRepository.GetOneByExpression(d => d.Id == id);
-            if (productSaved == null)
-            {
-                throw new ResourceNotFoundException("The product to delete does not exist.");
-            }
-            productSaved.Deleted = true;
-            _productRepository.UpdateOne(productSaved);
-            _productRepository.Save();
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Product> GetAll(ProductSearchCriteria productSearchCriteria)
         {
-            Product productToSearch = new Product();
-            if (productSearchCriteria.PharmacyId == null)
-            {
-                productToSearch.Name = productSearchCriteria.Name;
-            }
-            else
-            {
-                Pharmacy pharmacySaved = _pharmacyRepository.GetOneByExpression(p => p.Id == productSearchCriteria.PharmacyId);
-                if (pharmacySaved != null)
-                {
-                    productToSearch.Name = productSearchCriteria.Name;
-                    productToSearch.Pharmacy = pharmacySaved;
-                }
-                else
-                {
-                    throw new ResourceNotFoundException("The pharmacy to get products of does not exist.");
-                }
-            }
-            return _productRepository.GetAllByExpression(productSearchCriteria.Criteria(productToSearch));
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Product> GetAllByUser(string token)
         {
-            var guidToken = new Guid(token);
-            Session session = _sessionRepository.GetOneByExpression(s => s.Token == guidToken);
-            var userId = session.UserId;
-            User user = _userRepository.GetOneDetailByExpression(u => u.Id == userId);
-            Pharmacy pharmacy = user.Pharmacy;
-            return _productRepository.GetAllByExpression(d => d.Deleted == false && d.Pharmacy.Id == pharmacy.Id);
+            throw new NotImplementedException();
         }
 
         public Product GetById(int id)
@@ -119,23 +89,7 @@ namespace PharmaGo.BusinessLogic
 
         public Product Update(int id, Product product)
         {
-            if (product == null)
-            {
-                throw new ResourceNotFoundException("The updated drug is invalid.");
-            }
-            product.ValidOrFail();
-            var productSaved = _productRepository.GetOneByExpression(d => d.Id == id);
-            if (productSaved == null)
-            {
-                throw new ResourceNotFoundException("The drug to update does not exist.");
-            }
-            productSaved.Code = product.Code;
-            productSaved.Name = product.Name;
-            productSaved.Price = product.Price;
-            productSaved.Description = product.Description;
-            _productRepository.UpdateOne(productSaved);
-            _productRepository.Save();
-            return productSaved;
+            throw new NotImplementedException();
         }
     }
 }

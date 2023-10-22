@@ -96,6 +96,16 @@ namespace PharmaGo.BusinessLogic
             return _productRepository.GetAllByExpression(productSearchCriteria.Criteria(productToSearch));
         }
 
+        public IEnumerable<Product> GetAllByUser(string token)
+        {
+            var guidToken = new Guid(token);
+            Session session = _sessionRepository.GetOneByExpression(s => s.Token == guidToken);
+            var userId = session.UserId;
+            User user = _userRepository.GetOneDetailByExpression(u => u.Id == userId);
+            Pharmacy pharmacy = user.Pharmacy;
+            return _productRepository.GetAllByExpression(d => d.Deleted == false && d.Pharmacy.Id == pharmacy.Id);
+        }
+
         public Product GetById(int id)
         {
             Product retrievedProduct = _productRepository.GetOneByExpression(d => d.Id == id);

@@ -11,6 +11,10 @@ namespace PharmaGo.WebApi.Models.Out
         public string Symptom { get; set; }
         public PharmacyBasicModel Pharmacy { get; set; }
 
+        public string Description { get; set; }
+        public bool IsDrug { get; set; }
+
+
         public DrugBasicModel(Drug drug)
         {
             Id = drug.Id;
@@ -19,6 +23,16 @@ namespace PharmaGo.WebApi.Models.Out
             Symptom = drug.Symptom;
             Price = drug.Price;
             Pharmacy = new PharmacyBasicModel(drug.Pharmacy);
+        }
+
+        public DrugBasicModel(Product prod)
+        {
+            Id = prod.Id;
+            Code = prod.Code.ToString();
+            Name = prod.Name;
+            Description = prod.Description;
+            Price = prod.Price;
+            Pharmacy = new PharmacyBasicModel(prod.Pharmacy);
         }
     }
 }

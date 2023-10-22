@@ -16,6 +16,7 @@ namespace PharmaGo.Test.WebApi.Test
     {
         private DrugController _drugController;
         private Mock<IDrugManager> _drugManagerMock;
+        private Mock<IProductManager> _productManagerMock;
         private readonly string resourceNotFoundExceptionMessage = "Resource not found.";
         private readonly string invalidResourceExceptionMessage = "Invalid resource.";
         private readonly int drugId = 1;
@@ -32,9 +33,10 @@ namespace PharmaGo.Test.WebApi.Test
         {
 
             _drugManagerMock = new Mock<IDrugManager>(MockBehavior.Strict);
+            _productManagerMock = new Mock<IProductManager>(MockBehavior.Strict);
             var httpContext = new DefaultHttpContext();
             httpContext.Request.Headers["Authorization"] = token;
-            _drugController = new DrugController(_drugManagerMock.Object)
+            _drugController = new DrugController(_drugManagerMock.Object, _productManagerMock.Object)
             {
                 ControllerContext = new ControllerContext()
                 {
@@ -101,6 +103,7 @@ namespace PharmaGo.Test.WebApi.Test
         public void GetDrugsOk()
         {
             _drugManagerMock.Setup(x => x.GetAll(drugSearch)).Returns(GenerateDrugList());
+            _productManagerMock.Setup(x => x.GetAll(It.IsAny<ProductSearchCriteria>())).Returns(new List<Product>());
             var result = _drugController.GetAll(drugSearch);
             var objectResult = result as ObjectResult;
             var statusCode = objectResult.StatusCode;

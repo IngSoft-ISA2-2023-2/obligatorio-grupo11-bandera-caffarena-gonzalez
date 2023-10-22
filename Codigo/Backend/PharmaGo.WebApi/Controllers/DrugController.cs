@@ -58,7 +58,6 @@ namespace PharmaGo.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-
         public IActionResult GetById([FromRoute] int id)
         {
             Drug drug = _drugManager.GetById(id);

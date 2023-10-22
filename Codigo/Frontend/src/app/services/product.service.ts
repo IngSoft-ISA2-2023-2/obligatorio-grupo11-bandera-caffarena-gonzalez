@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../environments/environment';
 import { CommonService } from './CommonService';
 import { StorageManager } from '../utils/storage-manager';
 import { Observable, catchError, of, tap } from 'rxjs';
@@ -33,13 +33,23 @@ export class ProductService {
   }
 
   /** GET products from the server */
-  getProducts(userId?:string): Observable<Product[]> {
+  getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url, {headers: this.getHttpHeaders() })
       .pipe(
         tap(),
         catchError(this.handleError<Product[]>('Get Products', []))
       );
   }
+
+  getProduct(id: number): Observable<Product> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<Product>(url, {headers: this.getHttpHeaders() })
+    .pipe(
+      tap(),
+      catchError(this.handleError<Product>(`Get Product id=${id}`))
+    );
+  }
+
 
   createProduct(product: ProductRequest): Observable<Product> {
     return this.http.post<Product>(this.url, product, {headers: this.getHttpHeaders() })

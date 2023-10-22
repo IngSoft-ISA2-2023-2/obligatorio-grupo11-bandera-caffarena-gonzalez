@@ -47,5 +47,12 @@ namespace PharmaGo.WebApi.Controllers
             IEnumerable<ProductBasicModel> productsToReturn = products.Select(d => new ProductBasicModel(d));
             return Ok(productsToReturn);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            Product product = _productManager.GetById(id);
+            return Ok(new ProductDetailModel(product));
+        }
     }
 }

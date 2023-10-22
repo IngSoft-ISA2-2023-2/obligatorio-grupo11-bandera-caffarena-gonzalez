@@ -29,6 +29,8 @@ namespace SpecFlowProject.StepDefinitions
 
         private Product Product;
 
+        private Product nullProduct = null;
+
         private int id1;
         private int id2;
 
@@ -80,19 +82,18 @@ namespace SpecFlowProject.StepDefinitions
         [Then(@"se elimina el producto correctamente")]
         public void ThenSeEliminaElProductoCorrectamente()
         {
-            Product p1 = new Product();
             try
             {
-                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(new Product());
+                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(nullProduct);
 
-                p1 = _productManager.GetById(id1);
+                Product p1 = _productManager.GetById(id1);
+                p1.Should().BeNull();
             }
             catch (Exception err)
             {
                 err1 = err;
             }
 
-            p1.Should().BeNull();
             err1.Should().NotBeNull();
             Assert.IsType<ResourceNotFoundException>(err1);
         }
@@ -108,7 +109,7 @@ namespace SpecFlowProject.StepDefinitions
         {
             try
             {
-                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(new Product());
+                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(nullProduct);
 
                 _productManager.Delete(id2);
             }
@@ -121,22 +122,21 @@ namespace SpecFlowProject.StepDefinitions
         [Then(@"no se elimina el producto")]
         public void ThenNoSeEliminaElProducto()
         {
-            Product p2 = new Product();
             try
             {
-                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(new Product());
+                _productRepository.Setup(r => r.GetOneByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(nullProduct);
 
-                p2 = _productManager.GetById(Product.Id);
+                Product p2 = _productManager.GetById(id2);
+                p2.Should().BeNull();
+
             }
             catch (Exception err)
             {
-                err1 = err;
+                err3 = err;
             }
 
-            p2.Should().BeNull();
             err2.Should().NotBeNull();
             Assert.IsType<ResourceNotFoundException>(err2);
-            p2.Should().BeNull();
             err3.Should().NotBeNull();
             Assert.IsType<ResourceNotFoundException>(err3);
         }

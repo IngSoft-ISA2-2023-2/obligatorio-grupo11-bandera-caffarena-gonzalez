@@ -96,6 +96,11 @@ namespace PharmaGo.BusinessLogic
             return _productRepository.GetAllByExpression(productSearchCriteria.Criteria(productToSearch));
         }
 
+        public IEnumerable<Product> GetAllByUser(string token)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GetById(int id)
         {
             Product retrievedProduct = _productRepository.GetOneByExpression(d => d.Id == id);

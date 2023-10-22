@@ -65,5 +65,13 @@ namespace PharmaGo.WebApi.Controllers
             IEnumerable<ProductBasicModel> productsToReturn = products.Select(d => new ProductBasicModel(d));
             return Ok(productsToReturn);
         }
+
+        [HttpPut("{id}")]
+        [AuthorizationFilter(new string[] { nameof(RoleType.Administrator) })]
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateProductModel updateProduct)
+        {
+            Product product = _productManager.Update(id, updateProduct.ToEntity());
+            return Ok(new ProductDetailModel(product));
+        }
     }
 }

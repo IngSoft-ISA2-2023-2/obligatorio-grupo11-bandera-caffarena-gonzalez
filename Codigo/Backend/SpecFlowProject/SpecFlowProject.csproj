@@ -42,10 +42,17 @@
     <Compile Update="Features\DeleteProduct.feature.cs">
       <DependentUpon>DeleteProduct.feature</DependentUpon>
     </Compile>
+    <Compile Update="Features\GetAllProducts.feature.cs">
+      <DependentUpon>GetAllProducts.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <SpecFlowFeatureFiles Update="Features\DeleteProduct.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\GetAllProducts.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

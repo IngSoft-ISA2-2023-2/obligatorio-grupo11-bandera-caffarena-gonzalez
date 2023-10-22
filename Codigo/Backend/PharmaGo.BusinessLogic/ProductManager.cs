@@ -78,11 +78,6 @@ namespace PharmaGo.BusinessLogic
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> GetAllByUser(string token)
-        {
-            throw new NotImplementedException();
-        }
-
         public Product GetById(int id)
         {
             Product retrievedProduct = _productRepository.GetOneByExpression(d => d.Id == id);

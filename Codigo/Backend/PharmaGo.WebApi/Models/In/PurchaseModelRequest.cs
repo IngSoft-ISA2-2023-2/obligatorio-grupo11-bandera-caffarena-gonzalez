@@ -13,6 +13,7 @@ namespace PharmaGo.WebApi.Models.In
             public int PharmacyId { get; set; }
             public string Code { get; set; }
             public int Quantity { get; set; }
+            public bool IsDrug { get; set; }
         }
 
     }

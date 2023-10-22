@@ -15,18 +15,35 @@ namespace PharmaGo.WebApi.Controllers
     public class DrugController : Controller
     {
         private readonly IDrugManager _drugManager;
+        private readonly IProductManager _productManager;
 
-        public DrugController(IDrugManager manager)
+        public DrugController(IDrugManager manager, IProductManager productManager)
         {
             _drugManager = manager;
+            _productManager = productManager;
         }
 
         [HttpGet]
         public IActionResult GetAll([FromQuery] DrugSearchCriteria drugSearchCriteria)
         {
             IEnumerable<Drug> drugs = _drugManager.GetAll(drugSearchCriteria);
+            IEnumerable<Product> prods = _productManager.GetAll(GetProductSearchCriteria(drugSearchCriteria));
+
             IEnumerable<DrugBasicModel> drugsToReturn = drugs.Select(d => new DrugBasicModel(d));
-            return Ok(drugsToReturn);
+            IEnumerable<DrugBasicModel> prodsToReturn = prods.Select(d => new DrugBasicModel(d));
+
+            IEnumerable<DrugBasicModel> result = drugsToReturn.Concat(prodsToReturn);
+
+            return Ok(result);
+        }
+
+        private ProductSearchCriteria GetProductSearchCriteria(DrugSearchCriteria drugSearchCriteria)
+        {
+            return new ProductSearchCriteria()
+            {
+                Name = drugSearchCriteria.Name,
+                PharmacyId = drugSearchCriteria.PharmacyId
+            };
         }
 
         [HttpGet]

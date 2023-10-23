@@ -21,8 +21,15 @@ namespace PharmaGo.WebApi.Models.Out
             Quantity = detail.Quantity;
             PharmacyId = detail.Pharmacy.Id;
             PharmacyName = detail.Pharmacy.Name;
-            DrugCode = detail.Drug.Code;
-            DrugName = detail.Drug.Name;
+            if(detail.Drug is null)
+            {
+                DrugCode = detail.Product.Code.ToString();
+                DrugName = detail.Product.Name; 
+            } else
+            {
+                DrugCode = detail.Drug.Code;
+                DrugName = detail.Drug.Name;
+            }
         }
     }
 }

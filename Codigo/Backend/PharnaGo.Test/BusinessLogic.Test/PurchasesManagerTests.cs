@@ -55,8 +55,8 @@ namespace PharmaGo.Test.BusinessLogic.Test
             drug1 = new Drug { Id = 1, Deleted = false, Code = "XF324", Name = "Aspirina", Prescription = false, Price = 100, Stock = 50, Quantity = 10, UnitMeasure = unitMeasure1, Presentation = presentation1, Symptom = "afecciones bronquiales que cursan con tos y secreciones" };
             drug2 = new Drug { Id = 2, Deleted = false, Code = "RS546", Name = "Abrilar", Prescription = false, Price = 250, Stock = 50, Quantity = 20, UnitMeasure = unitMeasure2, Presentation = presentation2, Symptom = "acción analgésica, alivio de los dolores ocasionales leves o\r\nmoderados, como dolores de cabeza, musculares, de espalda.\r\nPresentación: comprimidos" };
 
-            pharmacy = new Pharmacy { Id = 1, Name = "Farmacia 1", Address = "Av. Italia 12345", Users = new List<User>(), Drugs = new List<Drug> { drug1 } };
-            pharmacy2 = new Pharmacy { Id = 2, Name = "Farmacia 2", Address = "Av. Italia 22222", Users = new List<User>(), Drugs = new List<Drug> { drug2 } };
+            pharmacy = new Pharmacy { Id = 1, Name = "Farmacia 1", Address = "Av. Italia 12345", Users = new List<User>(), Drugs = new List<Drug> { drug1 }, Products = new List<Product>()};
+            pharmacy2 = new Pharmacy { Id = 2, Name = "Farmacia 2", Address = "Av. Italia 22222", Users = new List<User>(), Drugs = new List<Drug> { drug2 }, Products = new List<Product>() };
 
             purchaseDetail = new List<PurchaseDetail> {
                 new PurchaseDetail{Id = 1, Quantity = 2, Price = new decimal(100), Drug =  drug1, Pharmacy = pharmacy, Status = "Pending"},

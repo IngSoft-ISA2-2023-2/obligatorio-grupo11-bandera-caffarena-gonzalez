@@ -34,16 +34,33 @@ namespace PharmaGo.WebApi.Models.Out
             Details = new List<PurchaseDetailModelResponse>();
             if (purchase.details != null) {
                 foreach (var detail in purchase.details) {
-                    Details.Add(new PurchaseDetailModelResponse {
-                        Id = detail.Id,         
-                        Name = detail.Drug.Name, 
-                        Code = detail.Drug.Code, 
-                        Price = detail.Drug.Price, 
-                        Quantity = detail.Quantity,
-                        PharmacyId = detail.Pharmacy.Id,
-                        PharmacyName = detail.Pharmacy.Name,
-                        Status = detail.Status
-                });
+                    if (detail.IsDrug())
+                    {
+                        Details.Add(new PurchaseDetailModelResponse
+                        {
+                            Id = detail.Id,
+                            Name = detail.Drug.Name,
+                            Code = detail.Drug.Code,
+                            Price = detail.Drug.Price,
+                            Quantity = detail.Quantity,
+                            PharmacyId = detail.Pharmacy.Id,
+                            PharmacyName = detail.Pharmacy.Name,
+                            Status = detail.Status
+                        });
+                    } else
+                    {
+                        Details.Add(new PurchaseDetailModelResponse
+                        {
+                            Id = detail.Id,
+                            Name = detail.Product.Name,
+                            Code = detail.Product.Code.ToString(),
+                            Price = detail.Product.Price,
+                            Quantity = detail.Quantity,
+                            PharmacyId = detail.Pharmacy.Id,
+                            PharmacyName = detail.Pharmacy.Name,
+                            Status = detail.Status
+                        });
+                    }
                 }
             }
         }

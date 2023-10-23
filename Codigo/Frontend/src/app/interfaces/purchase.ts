@@ -16,13 +16,16 @@ export class PurchaseRequestDetail {
   code: string = "";
   quantity: number = 1;
   pharmacyId: number = 1;
-
+  isDrug: boolean = true;
+  
   constructor(code: string, 
                         quantity: number, 
-                        pharmacyId: number){
+                        pharmacyId: number,
+                        isDrug: boolean){
       this.code = code;
       this.quantity = quantity;
       this.pharmacyId = pharmacyId;
+      this.isDrug = isDrug;
   }
 }
 

@@ -9,6 +9,7 @@ export interface Drug {
     prescription: boolean;
     unitMeasure: string;
     presentation: string;
+    isDrug: boolean;
     pharmacy: {
       id: number;
       name: string;  

@@ -41,6 +41,15 @@ export class ProductService {
       );
   }
 
+  getProductsByUser(): Observable<Product[]> {
+    const url = `${this.url}/user`;
+    return this.http.get<Product[]>(url, {headers: this.getHttpHeaders() })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Product[]>('Get Products By User', []))
+      );
+  }
+
   getProduct(id: number): Observable<Product> {
     const url = `${this.url}/${id}`;
     return this.http.get<Product>(url, {headers: this.getHttpHeaders() })
@@ -60,6 +69,7 @@ export class ProductService {
   }
 
   modifyProduct(product: ProductRequest): Observable<Product> {
+    const url = `${this.url}/${product.code}`;
     return this.http.put<Product>(this.url, product, {headers: this.getHttpHeaders() })
     .pipe(
       tap(),

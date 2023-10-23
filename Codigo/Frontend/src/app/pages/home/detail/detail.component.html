@@ -10,25 +10,25 @@
   <c-container>
     <c-row>
       <c-col>
-        <div *ngIf="drug">
+        <div *ngIf="purchaseItem">
           <c-card [cBorder]="{ top: { color: 'info', width: 3 } }" class="mb-3">
             <c-row class="g-0">
               <c-col [md]="4">
                 <img [cCardImg] src="assets/img/not_found.png" />
               </c-col>
               <c-card-body cCol [md]="8">
-                <h4 cCardTitle>{{ drug.name }}</h4>
+                <h4 cCardTitle>{{ purchaseItem.name }}</h4>
                 <h5 class="card-subtitle mb-2 text-muted">
-                  {{ drug.pharmacy.name }}
+                  {{ purchaseItem.pharmacy.name }}
                 </h5>
                 <p cCardText>
-                  <b>Code:</b> {{ drug.code }} <br />
-                  <b>Price:</b> {{ drug.price | currency }} <br />
-                  <b>Symptoms:</b> {{ drug.symptom }} <br />
-                  <b>Prescription:</b> {{ drug.prescription ? "Yes" : "No" }}
-                  <br />
-                  <b>Unit Measure:</b> {{ drug.unitMeasure }} <br />
-                  <b>Presentation:</b> {{ drug.presentation }}
+                  <b>Code:</b> {{ purchaseItem.code }} <br />
+                  <b>Price:</b> {{ purchaseItem.price | currency }} <br />
+                  <b *ngIf="purchaseItem.symptom">Symptoms:</b> {{ purchaseItem.symptom }} <br />
+                  <b *ngIf="purchaseItem.prescription !== undefined">Prescription:</b> {{ purchaseItem.prescription !== undefined ? (purchaseItem.prescription === true ? "Yes" : "No") : ""}} <br />
+                  <b *ngIf="purchaseItem.description">Description:</b> {{ purchaseItem.description }} <br />
+                  <b *ngIf="purchaseItem.unitMeasure">Unit Measure:</b> {{ purchaseItem.unitMeasure }} <br />
+                  <b *ngIf="purchaseItem.presentation">Presentation:</b> {{ purchaseItem.presentation }}
                 </p>
 
                 <div [ngStyle]="{ 'text-align': 'end' }">
@@ -46,7 +46,7 @@
                     />
                   </c-input-group>
 
-                  <button cButton color="primary" (click)="addToCart(drug)">
+                  <button cButton color="primary" (click)="addToCart(purchaseItem)">
                     Add to cart
                     <svg cIcon name="cil-cart"></svg>
                   </button>

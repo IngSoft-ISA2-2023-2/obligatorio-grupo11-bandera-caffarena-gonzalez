@@ -23,6 +23,7 @@ namespace PharmaGo.WebApi.Models.Out
             Symptom = drug.Symptom;
             Price = drug.Price;
             Pharmacy = new PharmacyBasicModel(drug.Pharmacy);
+            IsDrug = true;
         }
 
         public DrugBasicModel(Product prod)
@@ -33,6 +34,7 @@ namespace PharmaGo.WebApi.Models.Out
             Description = prod.Description;
             Price = prod.Price;
             Pharmacy = new PharmacyBasicModel(prod.Pharmacy);
+            IsDrug = false;
         }
     }
 }

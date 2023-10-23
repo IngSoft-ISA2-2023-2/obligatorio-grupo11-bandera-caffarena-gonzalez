@@ -67,7 +67,7 @@ namespace PharmaGo.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        [AuthorizationFilter(new string[] { nameof(RoleType.Administrator) })]
+        [AuthorizationFilter(new string[] { nameof(RoleType.Employee) })]
         public IActionResult Update([FromRoute] int id, [FromBody] UpdateProductModel updateProduct)
         {
             Product product = _productManager.Update(id, updateProduct.ToEntity());

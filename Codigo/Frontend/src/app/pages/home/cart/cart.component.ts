@@ -12,8 +12,10 @@ import { CommonService } from '../../../services/CommonService';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart: Drug[] = [];
+  cart: any[] = [];
   total: number = 0;
+  totalProducts: number = 0;
+  totalDrugs: number = 0;
 
   constructor(
     public iconSet: IconSetService,
@@ -43,9 +45,12 @@ export class CartComponent implements OnInit {
 
   updateTotal(){
     this.total = 0;
+    this.totalProducts = 0;
+    this.totalDrugs = 0;
     this.cart = JSON.parse(this.storageManager.getData('cart'));
     for(let item of this.cart){
       this.total += (item.price * item.quantity);
+      item.isDrug ? this.totalDrugs += (item.price * item.quantity) : this.totalProducts += (item.price * item.quantity);
     }
   }
 

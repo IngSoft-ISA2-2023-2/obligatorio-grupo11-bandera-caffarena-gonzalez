@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { cilCheckAlt, cilX } from '@coreui/icons';
 import { Product } from 'src/app/interfaces/product';
 import { CommonService } from 'src/app/services/CommonService';
+import { PharmacyService } from 'src/app/services/pharmacy.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -19,38 +20,16 @@ export class DeleteProductComponent implements OnInit {
   
   constructor(
     private commonService: CommonService,
-    private productService: ProductService
+    private productService: ProductService,
+    private pharmacyService: PharmacyService
   ) { }
 
   ngOnInit(): void {
-    //this.getProductsByUser();
-    //Pre charge products for testing
-    this.products = [
-      {id: 1,
-       code: 12345,
-       name: "Shampoo",
-       description: "Dale vida a tu pelo",
-       price: 200,
-       pharmacy: {
-        id: 1,
-        name: "La Pigalle"
-       }
-      },
-      {id: 2,
-        code: 47645,
-        name: "Pasta dental",
-        description: "Manten un buen aliento",
-        price: 200,
-        pharmacy: {
-         id: 1,
-         name: "La Pigalle"
-        }
-      }
-    ]
+    this.getProductsByUser();
   }
 
   getProductsByUser() {
-    this.productService.getProducts().subscribe((prod: any) => (this.products = prod));
+    this.productService.getProductsByUser().subscribe((prod: any) => (this.products = prod));
   }
 
   deleteProduct(index: number): void {

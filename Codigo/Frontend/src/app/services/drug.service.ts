@@ -77,6 +77,15 @@ export class DrugService {
       );
   }
 
+  getDrugsAndProducts(): Observable<Drug[]> {
+    const url = `${this.url}/Product`;
+    return this.http.get<Drug[]>(url, {headers: this.getHttpHeaders() })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Drug[]>('Get Drugs', []))
+      );
+  }
+
   /** POST Create Drug */
   createDrug(drug: DrugRequest): Observable<Drug> {
     return this.http.post<Drug>(this.url, drug, {headers: this.getHttpHeaders() })

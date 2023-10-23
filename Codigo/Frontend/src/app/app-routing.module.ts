@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/cart', component: CartComponent },
   { path: 'home/cart/cho', component: ChoComponent },
-  { path: 'home/detail/:id', component: DetailComponent },
+  { path: 'home/detail/:type/:id', component: DetailComponent },
   { path: 'home/tracking', component: TrackingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

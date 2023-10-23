@@ -20,11 +20,13 @@
                 {{ drug.pharmacy.name }}
               </h5>
               <p cCardText> 
-                <b>Symptoms:</b> {{ drug.symptom }} <br>
+                <b *ngIf="drug.symptom">Symptoms:</b> {{ drug.symptom }}
+                <b *ngIf="drug.description">Description:</b> {{ drug.description }}
+                <br>
                 <b>Price:</b> {{ drug.price | currency}}
               </p>
               <div [ngStyle]="{ 'text-align': 'end' }">
-              <button cButton color="primary" [routerLink]="['/home/detail', drug.id]">
+              <button cButton color="primary" [routerLink]="['/home/detail', drug.symptom ? 'drug' : 'product', drug.id]">
                 View Details
                 <svg cIcon name="cil-plus"></svg>
               </button>

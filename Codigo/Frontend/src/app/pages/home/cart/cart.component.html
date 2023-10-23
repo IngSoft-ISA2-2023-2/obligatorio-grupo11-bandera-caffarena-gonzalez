@@ -16,7 +16,8 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Drug</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Total</th>
@@ -27,6 +28,7 @@
               <tr *ngFor="let drug of cart; let indexOfelement = index">
                 <th scope="row">{{ indexOfelement + 1 }}</th>
                 <td>{{ drug.name }}</td>
+                <td>{{ drug.isDrug ? 'Drug' : 'Product' }}</td>
                 <td>{{ drug.price | currency }}</td>
                 <td>{{ drug.quantity }}</td>
                 <td>{{ drug.price * drug.quantity | currency }}</td>
@@ -42,6 +44,26 @@
               </tr>
             </tbody>
             <tfoot>
+              <tr>
+                <td><b>Subtotal Products</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>{{ totalProducts | currency }}</b>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><b>Subtotal Drugs</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>{{ totalDrugs | currency }}</b>
+                </td>
+                <td></td>
+              </tr>
               <tr>
                 <td><b>Total</b></td>
                 <td></td>

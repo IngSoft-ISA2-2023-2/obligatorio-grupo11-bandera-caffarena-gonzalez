@@ -66,11 +66,11 @@ namespace PharmaGo.WebApi.Controllers
             return Ok(productsToReturn);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [AuthorizationFilter(new string[] { nameof(RoleType.Employee) })]
-        public IActionResult Update([FromRoute] int id, [FromBody] UpdateProductModel updateProduct)
+        public IActionResult Update([FromBody] UpdateProductModel updateProduct)
         {
-            Product product = _productManager.Update(id, updateProduct.ToEntity());
+            Product product = _productManager.Update(updateProduct.ToEntity());
             return Ok(new ProductDetailModel(product));
         }
     }

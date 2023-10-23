@@ -97,7 +97,7 @@ namespace SpecFlowProject.StepDefinitions
             _productRepository.Setup(x => x.UpdateOne(It.IsAny<Product>()));
             _productRepository.Setup(x => x.Save());
 
-            _productManager.Update(Product1.Id, Product1);
+            _productManager.Update(Product1);
         }
 
         [Then(@"se modifica la información del producto correctamente")]
@@ -148,7 +148,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product2.Id, Product2);
+                _productManager.Update(Product2);
             }
             catch (Exception err)
             {
@@ -201,7 +201,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product3.Id, Product3);
+                _productManager.Update(Product3);
             }
             catch (Exception err)
             {
@@ -256,7 +256,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product4.Id, Product4);
+                _productManager.Update(Product4);
             }
             catch (Exception err)
             {
@@ -309,7 +309,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product5.Id, Product5);
+                _productManager.Update(Product5);
             }
             catch (Exception err)
             {
@@ -362,7 +362,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product6.Id, Product6);
+                _productManager.Update(Product6);
             }
             catch (Exception err)
             {
@@ -415,7 +415,7 @@ namespace SpecFlowProject.StepDefinitions
 
             try
             {
-                _productManager.Update(Product7.Id, Product7);
+                _productManager.Update(Product7);
             }
             catch (Exception err)
             {

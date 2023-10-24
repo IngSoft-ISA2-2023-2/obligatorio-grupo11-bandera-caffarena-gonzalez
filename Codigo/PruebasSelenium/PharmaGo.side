@@ -1,0 +1,193 @@
+{
+  "id": "c552943e-7fec-4fdf-b3ae-9f5357bc3356",
+  "version": "2.0",
+  "name": "PharmaGo",
+  "url": "http://localhost:4200/home",
+  "tests": [{
+    "id": "625a1323-c4a0-42b1-89d3-099e0a3b44a6",
+    "name": "Compra medicamento 1",
+    "commands": [{
+      "id": "a1071650-6026-4c2f-9535-a1c82cdff703",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23a5e8e4-7c3b-4071-8f8c-4cd9239213fd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "053ffdfd-55f6-4d58-87a0-b563159ab706",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-3:nth-child(1) .btn",
+      "targets": [
+        ["css=.mb-3:nth-child(1) .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'View Details ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "92b1554a-eb95-47a9-bdd4-681b5b313877",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to cart ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b499d13-9278-4dd4-b295-4832866461d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.customCheckout",
+      "targets": [
+        ["css=.customCheckout", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Proceed to Checkout ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "051dfb67-3d21-4c65-aff2-b247d81dc6f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "916a6853-48d5-4190-8b91-cb5330950584",
+      "comment": "",
+      "command": "type",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sebastianbandera17@gmail.com"
+    }, {
+      "id": "d4bd391f-12d1-4a2e-9386-b5fafa744339",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Finish Purchase ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ac7dd21-e892-4fb9-a80a-46ad84a7f018",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.customToastBody > span",
+      "targets": [
+        ["css=.customToastBody > span", "css:finder"],
+        ["xpath=//c-toast-body/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Thank you for your purchase. Tracking code: THN03WME9D00GKSD')]", "xpath:innerText"]
+      ],
+      "value": "val1"
+    }, {
+      "id": "492b9746-0d4e-4698-b33f-31a98f5be28f",
+      "comment": "",
+      "command": "echo",
+      "target": "${val1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eed96ab1-085d-4dd5-af99-6d9b0a704cc6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "var val1 = ${val1}; return val1.substr(val1.indexOf(\":\")+2)",
+      "targets": [],
+      "value": "res1"
+    }, {
+      "id": "38a4bf98-98a6-4905-8682-b27b87443101",
+      "comment": "",
+      "command": "echo",
+      "target": "${res1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "282d8659-12ab-4e2f-a4c0-58fa084b0fc4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item > .nav-link",
+      "targets": [
+        ["css=.nav-item > .nav-link", "css:finder"],
+        ["xpath=//a[contains(@href, '/home/tracking')]", "xpath:href"],
+        ["xpath=//c-nav-item[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d9297c5-123c-4de7-8416-73a4011242de",
+      "comment": "",
+      "command": "click",
+      "target": "id=CodeInput",
+      "targets": [
+        ["id=CodeInput", "id"],
+        ["css=#CodeInput", "css:finder"],
+        ["xpath=//input[@id='CodeInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58dcb677-9a92-4406-9430-fe61338d0588",
+      "comment": "",
+      "command": "type",
+      "target": "id=CodeInput",
+      "targets": [
+        ["id=CodeInput", "id"],
+        ["css=#CodeInput", "css:finder"],
+        ["xpath=//input[@id='CodeInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${res1}"
+    }, {
+      "id": "b994dd13-ad78-4340-9858-fb985919f714",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//c-input-group/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Track your purchase ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffbab2ca-38db-49a0-b2d0-d1aa6a39a5ee",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=card-tracking",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4002b94e-c9e9-4aea-947d-8b8bb7a94873",
+    "name": "Compra",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["625a1323-c4a0-42b1-89d3-099e0a3b44a6"]
+  }],
+  "urls": ["http://localhost:4200/home"],
+  "plugins": []
+}

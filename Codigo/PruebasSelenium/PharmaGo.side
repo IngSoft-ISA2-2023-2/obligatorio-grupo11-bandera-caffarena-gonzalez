@@ -179,6 +179,264 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "4acd47e6-8804-4d6a-b01d-f4ed565969d3",
+    "name": "Compra medicamento 2",
+    "commands": [{
+      "id": "0d3a2e20-88c9-4bf1-b8ce-96847bb4bd03",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7efbe34e-5e4e-4050-aaa6-2d255eba421d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "78c81bdb-ebb5-4283-87ec-567b28f3dddf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-3:nth-child(1) .btn",
+      "targets": [
+        ["css=.mb-3:nth-child(1) .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'View Details ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5cdf747-1e1f-4158-9d0c-5acde832ec5f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to cart ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "81ecc9e2-f4cd-482f-9726-d2ce2e6a8d64",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to cart ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8531c41-125f-44a9-82af-599585dbd794",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(1)",
+      "targets": [
+        ["css=.btn-primary:nth-child(1)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add another item ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4112519-ffcb-4c17-9b33-410a5d3a4199",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-3:nth-child(2) .btn",
+      "targets": [
+        ["css=.mb-3:nth-child(2) .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//c-card[2]/c-row/c-card-body/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfa6f1b4-39e0-4766-bfe6-817087ea40fc",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantityInput",
+      "targets": [
+        ["id=quantityInput", "id"],
+        ["css=#quantityInput", "css:finder"],
+        ["xpath=//input[@id='quantityInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1525b3b5-a861-4b97-877e-4efd29639f63",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityInput",
+      "targets": [
+        ["id=quantityInput", "id"],
+        ["css=#quantityInput", "css:finder"],
+        ["xpath=//input[@id='quantityInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "e55a34e6-f16a-42b3-b0b6-6dc22de714e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to cart ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbed917b-cc4e-45cd-8df9-c9979da70272",
+      "comment": "",
+      "command": "click",
+      "target": "css=.customCheckout",
+      "targets": [
+        ["css=.customCheckout", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Proceed to Checkout ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3eb438b0-0246-4aaf-94dc-e8a640413e83",
+      "comment": "",
+      "command": "click",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f48b3c54-5678-4a9b-8dd0-9ad9223719fc",
+      "comment": "",
+      "command": "type",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sebastianbandera17@gmail.com"
+    }, {
+      "id": "d9463e4c-a1fa-45b0-9a5e-716449dd97df",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Finish Purchase ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "af0d0899-275c-4044-ad07-882a81058746",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.customToastBody > span",
+      "targets": [
+        ["css=.customToastBody > span", "css:finder"],
+        ["xpath=//c-toast-body/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Thank you for your purchase. Tracking code: THN03WME9D00GKSD')]", "xpath:innerText"]
+      ],
+      "value": "val1"
+    }, {
+      "id": "53c15780-9107-4d76-a613-16475f4b23da",
+      "comment": "",
+      "command": "echo",
+      "target": "${val1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10321ea0-079a-4ba4-9f1c-a3ce8c790066",
+      "comment": "",
+      "command": "executeScript",
+      "target": "var val1 = ${val1}; return val1.substr(val1.indexOf(\":\")+2)",
+      "targets": [],
+      "value": "res1"
+    }, {
+      "id": "6dbda5c7-fd5c-4fa7-ae79-8020b7c6c371",
+      "comment": "",
+      "command": "echo",
+      "target": "${res1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01609b7e-89e6-4115-878d-18f101421fee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.customToastBody > span",
+      "targets": [
+        ["css=.customToastBody > span", "css:finder"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Thank you for your purchase. Tracking code: 32CAKTGM3LORPQBR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9414386b-b881-49fd-a97d-10afe51ded07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item > .nav-link",
+      "targets": [
+        ["css=.nav-item > .nav-link", "css:finder"],
+        ["xpath=//a[contains(@href, '/home/tracking')]", "xpath:href"],
+        ["xpath=//c-nav-item[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9856a765-c626-4e69-b641-b8561dade85a",
+      "comment": "",
+      "command": "click",
+      "target": "id=CodeInput",
+      "targets": [
+        ["id=CodeInput", "id"],
+        ["css=#CodeInput", "css:finder"],
+        ["xpath=//input[@id='CodeInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3edbd95f-0343-4e1c-bafb-62780a1f103c",
+      "comment": "",
+      "command": "type",
+      "target": "id=CodeInput",
+      "targets": [
+        ["id=CodeInput", "id"],
+        ["css=#CodeInput", "css:finder"],
+        ["xpath=//input[@id='CodeInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${res1}"
+    }, {
+      "id": "b6d61d65-da90-41e7-b2a0-c48227a6fb66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//c-input-group/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Track your purchase ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "78efc64b-7b41-4844-a458-260beed6f514",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=card-tracking",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "4002b94e-c9e9-4aea-947d-8b8bb7a94873",

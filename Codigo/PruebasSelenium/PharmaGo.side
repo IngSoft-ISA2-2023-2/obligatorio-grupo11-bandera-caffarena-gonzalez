@@ -7,6 +7,20 @@
     "id": "625a1323-c4a0-42b1-89d3-099e0a3b44a6",
     "name": "Compra medicamento 1",
     "commands": [{
+      "id": "743edc1f-774d-4aed-9693-7b74cb091152",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18bf7178-3d36-4f24-8c39-21fdb0b09e88",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a1071650-6026-4c2f-9535-a1c82cdff703",
       "comment": "",
       "command": "open",
@@ -92,6 +106,13 @@
         ["xpath=//button[contains(.,'Finish Purchase ')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "a3fab9d7-9b83-424e-97c8-63bdfd4c9631",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
     }, {
       "id": "1ac7dd21-e892-4fb9-a80a-46ad84a7f018",
       "comment": "",
@@ -183,6 +204,20 @@
     "id": "4acd47e6-8804-4d6a-b01d-f4ed565969d3",
     "name": "Compra medicamento 2",
     "commands": [{
+      "id": "18b242d8-7ff8-4912-a946-450c192cffae",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15d7947b-f1fe-4d73-9301-5260970b9342",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "0d3a2e20-88c9-4bf1-b8ce-96847bb4bd03",
       "comment": "",
       "command": "open",
@@ -340,6 +375,13 @@
       ],
       "value": ""
     }, {
+      "id": "ed9fc4a7-7c07-4480-a71d-e1072e8e2527",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "af0d0899-275c-4044-ad07-882a81058746",
       "comment": "",
       "command": "storeText",
@@ -441,6 +483,20 @@
     "id": "40a58f6f-450d-41d8-a9f7-23d7b7e95ee7",
     "name": "ESC - Correcta compra de un producto único",
     "commands": [{
+      "id": "84abbc3e-bd69-4f94-bb57-adb547eb1b3a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9666d358-ddb1-461d-b83d-dc412ffd6e93",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "ce33026c-78a0-4e48-a060-fbca3a7a635a",
       "comment": "",
       "command": "open",
@@ -545,6 +601,13 @@
       ],
       "value": ""
     }, {
+      "id": "80053fbd-6d56-406e-ac96-f9a1bb886483",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "bf0ebe29-9053-4d88-a35a-13709d3def51",
       "comment": "",
       "command": "storeText",
@@ -633,6 +696,20 @@
     "id": "fe819844-e78e-43a6-a529-1fe5258e8ed3",
     "name": "ESC - Correcta compra de un producto con varias unidades",
     "commands": [{
+      "id": "3518dbd8-c4e5-4e9f-b2fe-49748a0b5458",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2031e58d-3d11-43ba-9498-3976885c6695",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7773f3df-8f82-4a55-af06-62ddc358e8a2",
       "comment": "",
       "command": "open",
@@ -749,6 +826,13 @@
       ],
       "value": ""
     }, {
+      "id": "15780b4a-4d70-47a3-85c9-a1103c0b4e25",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "50e4835a-f146-481d-b7c3-150a6cd9df6b",
       "comment": "",
       "command": "storeText",
@@ -837,6 +921,20 @@
     "id": "0ac2aa59-e0bb-48f1-beb3-20ae3425cd10",
     "name": "ESC - Correcta compra de dos productos distintos de la misma farmacia",
     "commands": [{
+      "id": "68789672-dfe0-4f38-b702-59ee88131e9d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "255aa2f8-4696-4100-af9b-240fbce57cea",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "5c89cfe4-7cf2-442f-bfba-529844816f13",
       "comment": "",
       "command": "open",
@@ -982,6 +1080,13 @@
       ],
       "value": ""
     }, {
+      "id": "c8251414-7e05-4234-8254-db52f39a4221",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "15c23f24-1d4a-421e-8958-4730dfd1a001",
       "comment": "",
       "command": "storeText",
@@ -1058,6 +1163,20 @@
     "id": "85ccdcf8-4e24-4fa6-92b9-d7dca2bb613c",
     "name": "ESC - Correcta compra de dos productos distintos de distinta farmacia",
     "commands": [{
+      "id": "819a47ae-96aa-43c6-b384-cd1b696f5836",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "709bb62a-0158-481f-a564-555bc2c3a11f",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "25962ac7-7e1c-46e6-bb7c-cbe98a99fa0f",
       "comment": "",
       "command": "open",
@@ -1216,6 +1335,13 @@
       ],
       "value": ""
     }, {
+      "id": "088ad525-5a52-41b9-afcd-d4a2fea2d73d",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "9592e77c-0b2c-49bb-9dd5-6002b4e92d33",
       "comment": "",
       "command": "storeText",
@@ -1303,6 +1429,20 @@
     "id": "2f657c1a-527d-401b-a182-de457a5ef5ee",
     "name": "ESC - Correcta compra de productos combinado con medicamento",
     "commands": [{
+      "id": "a2b19344-bdd6-4148-a25f-76d04818c7c2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f112cd7-7436-4d93-94fb-783c6aca2bad",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "2bb2e184-c5e6-40b0-8c05-ba28e338ef41",
       "comment": "",
       "command": "open",
@@ -1448,6 +1588,13 @@
       ],
       "value": ""
     }, {
+      "id": "1cbd8501-ed55-4af7-be9a-ac9be6f2f63d",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.customToastBody > span",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "ba253e98-f6b0-45d2-aa95-e992207eface",
       "comment": "",
       "command": "storeText",
@@ -1517,6 +1664,20 @@
     "id": "aa4f258f-231a-4229-b60a-5ae950c56821",
     "name": "ESC - Intento de compra de producto fallido por monto negativo",
     "commands": [{
+      "id": "36be148f-0e88-4aed-87f6-05c35e64e500",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "542c7bde-7c28-4d23-9260-cef0ca9b91ec",
+      "comment": "",
+      "command": "runScript",
+      "target": "localStorage.clear()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "c3f56273-2b3a-4b45-8fdf-9770c34d8b48",
       "comment": "",
       "command": "open",
@@ -1560,7 +1721,7 @@
       ],
       "value": ""
     }, {
-      "id": "32328428-a6b5-4454-9c35-53ccc1ca9cb0",
+      "id": "d89aabde-f89f-41b8-8573-23b0a7440d2f",
       "comment": "",
       "command": "type",
       "target": "id=quantityInput",
@@ -1571,6 +1732,18 @@
         ["xpath=//input", "xpath:position"]
       ],
       "value": "-1"
+    }, {
+      "id": "8f5fa932-1af3-4b74-988e-b5b5de4fffcf",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=quantityInput",
+      "targets": [
+        ["id=quantityInput", "id"],
+        ["css=#quantityInput", "css:finder"],
+        ["xpath=//input[@id='quantityInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
     }, {
       "id": "7541d7b3-9503-4031-9aba-eef654764cb5",
       "comment": "",
@@ -1622,7 +1795,7 @@
     }, {
       "id": "9242133b-7ca2-4d8f-ac51-282e6cb30567",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "//assert element present",
       "target": "css=button.btn.btn-primary.disabled",
       "targets": [],
       "value": ""

@@ -5,10 +5,12 @@ on:
     branches: [ "main" ]
     paths:
     - 'Codigo/Frontend/**'
+    - 'Codigo/PruebasSelenium/**'
   pull_request:
     branches: [ "main" ]
     paths:
     - 'Codigo/Frontend/**'
+    - 'Codigo/PruebasSelenium/**'
 
 jobs:
   ci:

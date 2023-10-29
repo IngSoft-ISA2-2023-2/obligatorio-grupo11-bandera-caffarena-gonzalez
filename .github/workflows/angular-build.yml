@@ -50,6 +50,8 @@ jobs:
         run: |
           cd Codigo/Frontend
           npm run build
+      - name: Setup Chrome for Selenium
+        uses: browser-actions/setup-chrome@v1.2.3
       - name: Install Dependencies Selenium
         run: |
           cd Codigo/Frontend

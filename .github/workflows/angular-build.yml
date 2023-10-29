@@ -48,3 +48,11 @@ jobs:
         run: |
           cd Codigo/Frontend
           npm run build
+      - name: Install Dependencies Selenium
+        run: |
+          cd Codigo/Frontend
+          npm install -g selenium-side-runner
+          npm install -g chromedriver 
+      - name: Test Selenium
+        run: |
+          selenium-side-runner "/Codigo/PruebasSelenium/PharmaGo.side"

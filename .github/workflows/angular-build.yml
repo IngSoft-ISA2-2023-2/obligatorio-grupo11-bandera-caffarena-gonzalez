@@ -57,4 +57,4 @@ jobs:
           npm install -g chromedriver 
       - name: Test Selenium
         run: |
-          selenium-side-runner "/Codigo/PruebasSelenium/PharmaGo.side"
+          selenium-side-runner "../PruebasSelenium/PharmaGo.side"

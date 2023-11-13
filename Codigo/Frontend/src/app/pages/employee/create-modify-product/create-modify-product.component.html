@@ -11,7 +11,7 @@
                 <span cInputGroupText>
                   <svg cIcon [cIcon]="icons.cilBarcode"></svg>
                 </span>
-                <input
+                <input id = "codeField"
                   autoComplete="code"
                   cFormControl
                   placeholder="Code"
@@ -22,7 +22,7 @@
                 <span cInputGroupText>
                   <svg cIcon [cIcon]="icons.cilPencil"></svg>
                 </span>
-                <input
+                <input id="nameField"
                   formControlName="name" 
                   autoComplete="name" 
                   cFormControl 
@@ -32,7 +32,7 @@
                 <span cInputGroupText>
                   <svg cIcon [cIcon]="icons.cilAlignCenter"></svg>
                 </span>
-                <input 
+                <input id="descField"
                   formControlName="description"
                   autoComplete="description" 
                   cFormControl 
@@ -42,7 +42,7 @@
                 <span cInputGroupText>
                   <svg cIcon [cIcon]="icons.cilDollar"></svg>
                 </span>
-                <input
+                <input id="priceField"
                   autoComplete="price"
                   cFormControl
                   placeholder="Price"
@@ -51,7 +51,7 @@
                 />
               </c-input-group>
               <div class="d-grid">
-                <button 
+                <button id="btnCreateProduct"
                 (click)="createProduct()"
                 class="customButton" 
                 cButton 
@@ -60,7 +60,7 @@
                 </button>
               </div>
               <div class="d-grid" style="margin-top: 10px; ">
-                <button 
+                <button  id="btnModifyProduct"
                 (click)="modifyProduct()"
                 class="customButton" 
                 cButton 
